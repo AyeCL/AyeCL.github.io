@@ -1,21 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react';
+import someFunction from './someFunction';
 
-export default function form() {
-  return (
+export default function Form() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    // const [stream, setStream] = useState('');
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        someFunction(phone);
+    }
+
+    return (
     // Make a form with inputs for name, email, phone number and a dropdown for Stream with options of "Science", "Management", "Humanities" and "Law".
     <div>
-        <form action='https://api.sheetmonkey.io/form/8LXkZmgCssqSPFq2mbvCjG' method='POST'>
+        <form onSubmit={handleSubmit} id='registrationForm'>
             <label>Name
-                <input type="text" />
+                <input type="text" name='Name' onChange={event => setName(event.target.value)} value={name} />
             </label>
             <label>Email
-                <input type="email" />
+                <input type="email" name='Student Email' onChange={event => setEmail(event.target.value)} value={email} />
             </label>
             <label>Phone Number
-                <input type="number" />
+                <input type="number" name='Student Phone' onChange={event => setPhone(event.target.value)} value={phone} />
             </label>
             <label>Stream
-                <select>
+                <select name='Stream' id='stream'>
                     <option value="Science">Science</option>
                     <option value="Management">Management</option>
                     <option value="Humanities">Humanities</option>
@@ -25,5 +36,5 @@ export default function form() {
             <button>Submit</button>
         </form>
     </div>
-  )
+    )
 }
