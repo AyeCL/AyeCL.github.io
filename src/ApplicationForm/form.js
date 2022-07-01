@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import someFunction from './someFunction';
+import sendSMS from '../modules/sendSMS';
+import sendEmail from '../modules/sendEmail';
 
 export default function Form() {
     const [name, setName] = useState('');
@@ -9,7 +10,8 @@ export default function Form() {
 
     const handleSubmit = event => {
         event.preventDefault();
-        someFunction(phone);
+        sendSMS(phone);
+        sendEmail(name, email);
     }
 
     return (

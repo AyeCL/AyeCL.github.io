@@ -1,9 +1,4 @@
 function someFunction(phone) {
-    // var name = document.getElementsById('Name').value;
-    // var email = document.getElementsById('Student Email').value;
-    // var phone = document.getElementById('student-phone').value;
-    // var stream = document.getElementsById('Stream').value;
-
     console.log("someFunction samma pugyo")
 
     let form = document.getElementById('registrationForm');
@@ -20,12 +15,5 @@ function someFunction(phone) {
     xhr.onreadystatechange = (e) => {
         console.log("SMS API Response: " + xhr.responseText);
     }
-
-    form.action = "https://api.sheetmonkey.io/form/8LXkZmgCssqSPFq2mbvCjG"
-    form.method = "POST"
-
-    form.submit();
-
-    return true;
 }
 export default someFunction
